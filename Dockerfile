@@ -158,5 +158,7 @@ COPY stunnel/fb.conf /etc/stunnel/conf.d/fb.conf
 
 EXPOSE 1935
 EXPOSE 80
-ENTRYPOINT [ "stunnel" ]
-CMD ["nginx"]
+
+COPY  ./init.sh .
+RUN ["chmod", "+x", "./init.sh"]
+ENTRYPOINT "./init.sh" 
