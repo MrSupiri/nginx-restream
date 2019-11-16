@@ -140,8 +140,7 @@ RUN apk add --update \
   rtmpdump \
   x264-dev \
   x265-dev \
-  stunnel \
-  openrc
+  stunnel
 
 COPY --from=build-nginx /usr/local/nginx /usr/local/nginx
 COPY --from=build-ffmpeg /usr/local /usr/local
@@ -156,9 +155,8 @@ ADD static /www/static
 COPY stunnel/stunnel.conf /etc/stunnel/stunnel.conf 
 COPY stunnel/stunnel4 /etc/default/stunnel4
 COPY stunnel/fb.conf /etc/stunnel/conf.d/fb.conf 
-RUN rc-update add stunnel default
 
 EXPOSE 1935
 EXPOSE 80
 
-CMD ["nginx"]
+CMD ["stunnel && nginx"]
