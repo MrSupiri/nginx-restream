@@ -156,7 +156,7 @@ ADD static /www/static
 COPY stunnel/stunnel.conf /etc/stunnel/stunnel.conf 
 COPY stunnel/stunnel4 /etc/default/stunnel4
 COPY stunnel/fb.conf /etc/stunnel/conf.d/fb.conf 
-RUN rc-update add stunnel
+RUN rc-update add stunnel default
 
 EXPOSE 1935
 EXPOSE 80
