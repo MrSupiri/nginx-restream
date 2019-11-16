@@ -158,5 +158,5 @@ COPY stunnel/fb.conf /etc/stunnel/conf.d/fb.conf
 
 EXPOSE 1935
 EXPOSE 80
-
-CMD ["stunnel && nginx"]
+ENTRYPOINT [ "stunnel" ]
+CMD ["nginx"]
